@@ -1,14 +1,16 @@
-import { entry } from "./entry";
+import { Entry } from "./entry";
+import './styles.css';
 
 $(document).ready(function() {
-  $('#entry').submit(function(event) {
+  $('form#entry').submit(function(event) {
     event.preventDefault();
     var title = $('#title').val();
     var textBody = $("#textBody").val();
-    var newEntry = Entry(title, textBody);
+    var newEntry = new Entry(title, textBody);
+    var newEntryLength = newEntry.wordNumber;
     var vowelNumber = newEntry.vowels();
     var consonantNumber = newEntry.consonants();
     var teaser = newEntry.getTeaser();
-    $('#results').append("<li>" + newEntry + "</li>" + "<li>" + vowelNumber + "</li>" + "<li>" + consonantNumber + "</li>" + "<li>" + teaser + "</li>");
+    $('#results').append("<li>" + newEntryLength + "</li>" + "<li>" + vowelNumber + "</li>" + "<li>" + consonantNumber + "</li>" + "<li>" + teaser + "</li>");
   });
 });

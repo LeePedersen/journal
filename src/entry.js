@@ -16,9 +16,9 @@ Entry.prototype.getTeaser = function() {
   return result;
 }
 
-var vowels = ["aeiouy".split("")];
 
 Entry.prototype.vowels = function() {
+  var vowels = "aeiouy".split("");
   var bodyArray = this.body.split("");
   var vowelArray = [];
   for (var i = 0; i < bodyArray.length; i++) {
@@ -31,10 +31,11 @@ Entry.prototype.vowels = function() {
 }
 
 Entry.prototype.consonants = function() {
+  var consonants = "bcdfghjklmnpqrstvwxyz".split("");
   var bodyArray = this.body.split("");
   var consonantArray = [];
   for (var i = 0; i < bodyArray.length; i++) {
-    if (!vowels.includes(bodyArray[i])) {
+    if (consonants.includes(bodyArray[i])) {
       consonantArray.push(bodyArray[i]);
     }
   }
