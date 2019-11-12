@@ -5,7 +5,10 @@ $(document).ready(function() {
     event.preventDefault();
     var title = $('#title').val();
     var textBody = $("#textBody").val();
-    var output = entry(title, textBody);
-    $('#results').append("<li>" + output + "</li>");
+    var newEntry = Entry(title, textBody);
+    var vowelNumber = newEntry.vowels();
+    var consonantNumber = newEntry.consonants();
+    var teaser = newEntry.getTeaser();
+    $('#results').append("<li>" + newEntry + "</li>" + "<li>" + vowelNumber + "</li>" + "<li>" + consonantNumber + "</li>" + "<li>" + teaser + "</li>");
   });
 });
